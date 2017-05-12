@@ -1,5 +1,6 @@
 package javaapplicationprimerospasoshibernate;
 
+import ar.com.yo.bo.Localidad;
 import ar.com.yo.bo.Persona;
 import ar.com.yo.bo.Telefono;
 import ar.com.yo.hibernate.NewHibernateUtil;
@@ -17,14 +18,40 @@ public class JavaApplicationPrimerosPasosHibernate {
         Transaction transaction = session.beginTransaction();
         
         long idbuscar = 3;
-        Persona persona = (Persona)session.load(Persona.class, idbuscar);
+//        Persona persona = (Persona)session.load(Persona.class, idbuscar);
         
         
-        Telefono t3 = new Telefono();
+        /*Telefono t3 = new Telefono();
         t3.setNumero("1654685765");
-        persona.getTelefonos().add(t3);
+        persona.getTelefonos().add(t3);*/
+        
+        Persona persona = new Persona();
+        persona.setNombre("martin");
+        persona.setApellido("trump");
         session.save(persona);
                 
+        
+        Localidad localidad = new Localidad();
+        localidad.setNombre("nombre localidad 1");
+        Localidad localidad1 = new Localidad();
+        localidad1.setNombre("nombre localidad 2");
+        session.save(localidad);
+        session.save(localidad1);
+        
+        persona.getLocalidades().add(localidad);
+        persona.getLocalidades().add(localidad1);
+        localidad.getPersonas().add(persona);
+        localidad1.getPersonas().add(persona);
+        
+        
+                
+        
+        
+                
+        
+        
+        
+        
         
         /*Persona persona = new Persona();
         persona.setNombre("unNombre");
@@ -46,6 +73,7 @@ public class JavaApplicationPrimerosPasosHibernate {
         session.save(persona);
         transaction.commit();
 */
+        transaction.commit();
         session.close();
         factory.close();
         

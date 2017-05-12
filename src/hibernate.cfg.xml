@@ -18,5 +18,6 @@
     <property name="format_sql">true</property>
     <mapping class="ar.com.yo.bo.Persona"/>
     <mapping class="ar.com.yo.bo.Telefono"/>
+    <mapping class="ar.com.yo.bo.Localidad"/>
   </session-factory>
 </hibernate-configuration>

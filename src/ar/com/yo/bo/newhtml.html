@@ -1,0 +1,8 @@
+//attach cuando hacemos new y no lo guardamos, para hibernate es transient (sin nocion de existencia) con save o saveOrUpdate ya deja de ser transiet 
+//despues de save or update pasa a persistent, esta dentro del contextod e hibernate
+cuando cerras la session o el session factory completo o session clean, queda detached
+y se puede volver a attachear con un update merge o saveOrUpdate
+
+
+*si recupere el objeto persona, cierro la session y despues hago "getTelefonos" explota porque esta detached
+    tira una lazy excetion "no session"

@@ -9,6 +9,11 @@ import java.util.*;
 @Table(name = "Personas")
 public class Persona {
 
+    public Persona() {
+    }
+
+    
+    
     @Id
     @GeneratedValue
     private long id;
@@ -28,9 +33,24 @@ public class Persona {
     //ver ExtraLazy
 
     //con el eager , le digo que levante todo de una, nada que ver con cascade, es solo para levantar datos
-    @OneToMany(cascade = {CascadeType.ALL}/*fetch = FetchType.EAGER*/)//sin el join column crea una tabla interpuesta
-    @JoinColumn(name="idPersona")// con esto evito la tabla interpuesta y el id persona pasa a ser fk en la tabla telefono
+    //cascade all hace para los hijos
+    //attach cuando hacemos new y no lo guardamos, para hibernate es transient (sin nocion de existencia) con save o saveOrUpdate ya deja de ser transiet 
+    //despues de save or update pasa a persistent, esta dentro del contextod e hibernate
+    @OneToMany(cascade = {/*CascadeType.ALL*/}/*fetch = FetchType.EAGER*/)//sin el join column crea una tabla interpuesta
+    @JoinColumn(name = "idPersona")// con esto evito la tabla interpuesta y el id persona pasa a ser fk en la tabla telefono
     private List<Telefono> telefonos = new ArrayList<Telefono>();
+
+    @ManyToMany
+    private List<Localidad> localidades = new ArrayList<Localidad>();
+    
+
+    public List<Localidad> getLocalidades() {
+        return localidades;
+    }
+
+    public void setLocalidades(List<Localidad> localidades) {
+        this.localidades = localidades;
+    }
 
     public List<Telefono> getTelefonos() {
         return telefonos;
@@ -39,7 +59,7 @@ public class Persona {
     public void setTelefonos(List<Telefono> telefonos) {
         this.telefonos = telefonos;
     }
-    
+
     /**
      * @return the id
      */
