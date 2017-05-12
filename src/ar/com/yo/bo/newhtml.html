@@ -6,3 +6,12 @@ y se puede volver a attachear con un update merge o saveOrUpdate
 
 *si recupere el objeto persona, cierro la session y despues hago "getTelefonos" explota porque esta detached
     tira una lazy excetion "no session"
+    
+    
+    one to one
+    2 formas o con fk o compartiendo la primary
+    
+    en one to one con fk es como el many to one , solo tiene una restriccion logica para que sea 1:1
+    
+    con pk compartida la logica es la siguiente , direccion no tendria id propio sino que el id seria 
+    igual que el de persona.

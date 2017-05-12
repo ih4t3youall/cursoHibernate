@@ -19,5 +19,6 @@
     <mapping class="ar.com.yo.bo.Persona"/>
     <mapping class="ar.com.yo.bo.Telefono"/>
     <mapping class="ar.com.yo.bo.Localidad"/>
+    <mapping class="ar.com.yo.bo.Direccion"/>
   </session-factory>
 </hibernate-configuration>

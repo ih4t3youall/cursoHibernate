@@ -17,6 +17,10 @@ public class Persona {
     @Id
     @GeneratedValue
     private long id;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Direccion direccion;
+    
     private String nombre;
     private String apellido;
     @Column(length = 500, name = "segundoNombre", unique = false) //tiene mas weas
@@ -60,6 +64,16 @@ public class Persona {
         this.telefonos = telefonos;
     }
 
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
+    
+    
     /**
      * @return the id
      */

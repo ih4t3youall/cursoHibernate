@@ -1,5 +1,6 @@
 package javaapplicationprimerospasoshibernate;
 
+import ar.com.yo.bo.Direccion;
 import ar.com.yo.bo.Localidad;
 import ar.com.yo.bo.Persona;
 import ar.com.yo.bo.Telefono;
@@ -29,6 +30,20 @@ public class JavaApplicationPrimerosPasosHibernate {
         persona.setNombre("martin1");
         persona.setApellido("trump1");
         session.save(persona);
+        
+        
+        Direccion direccion = new Direccion();
+        direccion.setCalle("una calle");
+        
+        Direccion direccion1 = new Direccion();
+        direccion.setCalle("una calle");
+        
+        direccion.setPersona(persona);
+        direccion1.setPersona(persona);
+        
+        
+        persona.setDireccion(direccion);
+        session.save(direccion);
                 
         
         Telefono tel = new Telefono();
