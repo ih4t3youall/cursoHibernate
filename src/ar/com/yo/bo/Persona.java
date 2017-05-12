@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Objects;
 import javax.persistence.*;
 import java.util.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "Personas")
@@ -45,6 +47,8 @@ public class Persona {
     private List<Telefono> telefonos = new ArrayList<Telefono>();
 
     @ManyToMany
+    //si ya hay algo persistido, y le tiro un size , en ves de traerlo, le tira un count
+    @LazyCollection(LazyCollectionOption.EXTRA)
     private List<Localidad> localidades = new ArrayList<Localidad>();
     
 
