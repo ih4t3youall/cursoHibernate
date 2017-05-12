@@ -17,7 +17,21 @@ public class Telefono {
     @GeneratedValue
     private long id;
     private String numero;
+    
+    @ManyToOne
+    private Persona persona;
 
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    
+    
+    
     public long getId() {
         return id;
     }

@@ -26,15 +26,27 @@ public class JavaApplicationPrimerosPasosHibernate {
         persona.getTelefonos().add(t3);*/
         
         Persona persona = new Persona();
-        persona.setNombre("martin");
-        persona.setApellido("trump");
+        persona.setNombre("martin1");
+        persona.setApellido("trump1");
         session.save(persona);
                 
         
+        Telefono tel = new Telefono();
+        Telefono tel2 = new Telefono();
+        tel.setNumero("123654");
+        tel2.setNumero("123654789");
+        
+        session.save(tel);
+        session.save(tel2);
+        tel.setPersona(persona);
+        tel2.setPersona(persona);
+        persona.getTelefonos().add(tel);
+        persona.getTelefonos().add(tel);
+                
         Localidad localidad = new Localidad();
-        localidad.setNombre("nombre localidad 1");
+        localidad.setNombre("nombre localidad 3");
         Localidad localidad1 = new Localidad();
-        localidad1.setNombre("nombre localidad 2");
+        localidad1.setNombre("nombre localidad 4");
         session.save(localidad);
         session.save(localidad1);
         

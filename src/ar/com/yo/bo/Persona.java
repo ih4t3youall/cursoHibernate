@@ -36,8 +36,8 @@ public class Persona {
     //cascade all hace para los hijos
     //attach cuando hacemos new y no lo guardamos, para hibernate es transient (sin nocion de existencia) con save o saveOrUpdate ya deja de ser transiet 
     //despues de save or update pasa a persistent, esta dentro del contextod e hibernate
-    @OneToMany(cascade = {/*CascadeType.ALL*/}/*fetch = FetchType.EAGER*/)//sin el join column crea una tabla interpuesta
-    @JoinColumn(name = "idPersona")// con esto evito la tabla interpuesta y el id persona pasa a ser fk en la tabla telefono
+    // esto significa que esta mappeado por el atributo persona que existe en telefono
+    @OneToMany(mappedBy = "persona")
     private List<Telefono> telefonos = new ArrayList<Telefono>();
 
     @ManyToMany
