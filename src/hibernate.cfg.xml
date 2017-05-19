@@ -16,11 +16,10 @@
     <!-- Drop and re-create the database schema on startup -->
     <property name="hbm2ddl.auto">update</property>
     <property name="format_sql">true</property>
-    <mapping class="ar.com.yo.bo.Persona"/>
-    <mapping class="ar.com.yo.bo.Telefono"/>
-    <mapping class="ar.com.yo.bo.Localidad"/>
-    <mapping class="ar.com.yo.bo.Direccion"/>
-    <mapping class="ar.com.yo.bo.Director"/>
-    <mapping class="ar.com.yo.bo.Empleado"/>
+    
+    <mapping class="ar.com.yo.entity.Auto"/>
+    <mapping class="ar.com.yo.entity.Concesionario"/>
+    <mapping class="ar.com.yo.entity.Persona"/>
+    <mapping class="ar.com.yo.entity.Vendedor"/>
   </session-factory>
 </hibernate-configuration>
