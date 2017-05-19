@@ -16,6 +16,11 @@ public class Empleado extends Persona{
 
     private int sueldo;
 
+    public Empleado() {
+    }
+
+    
+    
     public Empleado(int sueldo,String nombre,String apellido) {
         this.sueldo = sueldo;
         

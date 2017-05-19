@@ -9,8 +9,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "Personas")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name ="tipo_persona")
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name ="tipo_persona")
 public class Persona {
 
     public Persona() {
@@ -20,6 +20,7 @@ public class Persona {
     
     @Id
     @GeneratedValue
+    @Column(name ="PERSONA_ID")
     private long id;
     
     @ManyToOne(fetch = FetchType.LAZY)

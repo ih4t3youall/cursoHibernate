@@ -26,12 +26,17 @@ class Inicio {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
         
-        Empleado emp = new Empleado(110, "nombreEmpleado", "apellidoEmpleado");
-        Director direct= new Director("areaDirector", "Nombre Director", "apelldo director");
-        
-        
-        session.save(emp);
-        session.save(direct);
+//        Empleado emp = new Empleado(110, "nombreEmpleado", "apellidoEmpleado");
+//        Director direct= new Director("areaDirector", "Nombre Director", "apelldo director");
+//        
+//        
+//        session.save(emp);
+//        session.save(direct);
+
+        Empleado emp = new Empleado();
+        emp.setId(1);
+        Empleado persona = (Empleado)session.get(Empleado.class, 1l);
+        System.out.println("id: "+persona.getNombre());
         transaction.commit();
         session.close();
         factory.close();
