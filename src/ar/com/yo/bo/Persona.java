@@ -9,6 +9,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "Personas")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name ="tipo_persona")
 public class Persona {
 
     public Persona() {

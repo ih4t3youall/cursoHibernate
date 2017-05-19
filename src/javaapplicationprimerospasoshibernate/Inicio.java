@@ -5,6 +5,8 @@
  */
 package javaapplicationprimerospasoshibernate;
 
+import ar.com.yo.bo.Director;
+import ar.com.yo.bo.Empleado;
 import ar.com.yo.bo.Persona;
 import ar.com.yo.hibernate.NewHibernateUtil;
 import org.hibernate.Session;
@@ -23,10 +25,13 @@ class Inicio {
 
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
-        Persona persona = new Persona();
-        persona.setNombre("unNombre");
-        persona.setApellido("unApellido");
-        session.save(persona);
+        
+        Empleado emp = new Empleado(110, "nombreEmpleado", "apellidoEmpleado");
+        Director direct= new Director("areaDirector", "Nombre Director", "apelldo director");
+        
+        
+        session.save(emp);
+        session.save(direct);
         transaction.commit();
         session.close();
         factory.close();
